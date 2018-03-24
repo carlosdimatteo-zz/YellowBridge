@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<title>Login</title>
+<body>
+    <script src="XHR.js"></script>
+<form>
+    Usuario:<input type="text" id="usuario"name="usuario"><br>
+    Clave:<input type="text" id="clave"name="clave"><br>
+    <button type="button" onclick="inicio()" >Login</button><br>
+   Si no posee una cuenta haga click <a href="/registro.html">aqui</a>
+    
+    </form>
+
+<script>
+ function inicio(){
+     
+	    var u=document.getElementById("usuario").value;
+	    var c=document.getElementById("clave").value;
+	    var j={
+	    usuario:u,
+	    clave:c
+	}
+        console.log(j.usuario+j.clave);
+ console.log(JSON.stringify(j));
+ }
+ 
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+	<title>Sesion Iniciada</title>
+	<link href="/Entrega1/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<div id="Welcome">
+		<H2>  </H2>
+		<div class="buttons">
+		<h1 class="title">Subir Contenido</h1>
+	<div>
+		Titulo: <input type="text" id="titulovid">
+		<br>
+		Descripcion: <input type="text" id="deArchivo">
+		<input type="file" id="file"/> <button onclick="upload()">Subir video</button>
+		<h3 id="uploadStatus"></h3>
+		<input type="text" id="nombreVid">
+		<button type="button" onclick="descarga()" >Descargar video</button>
+		<button type="button" onclick="stream()" >Reproducir video</button>
+		<video id="archivo" alt="" />
+	</div>
+	<div>
+
+	<br>
+	<div class="video-container">
+		<video  id="video" width="500px" height="500px" controls ></video>
+	</div>
+
+	</div>
+
+	</div>
+	<div>
+	<button type="button" style="visibility:hidden" id="like" onclick="like()">Like</button>
+	<button type="button" style="visibility:hidden" id="dislike" onclick="dislike()">dislike</button>
+
+	</div>
+	</div>
+		<button type="button" onclick="cerrar()" >Cerrar Sesion</button>
+
+	</div>
+	<script src="XHR.js"></script>
+<script>
+
+xhr= new XHR();
+function $(id) {
+	return document.getElementById(id);
+}
+
+function upload() {
+	xhr.up();
+
+}
+function cerrar(){
+
+	xhr.get("/Entrega1/LogoutServlet");
+}
+
+function descarga() {
+	var url = "./DescargaArchivo?name="+ $("nombreVid").value.trim();
+	$("archivo").src = url;
+	var downloadWindow = window.open(url);
+}
+function stream(){
+	media_name=$("nombreVid").value.trim();
+	xhr.stream(media_name, "./video?videoname="+media_name);
+	//$("video").src="./video";
+	$("like").style="visibility:visible";
+	$("dislike").style="visibility:visible";
+}
+function like(){
+	xhr.like();
+
+}
+function dislike(){
+	xhr.dislike();
+}
+</script>
+
+</body>
+</html>

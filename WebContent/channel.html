@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BridgeGreen</title>
+  <link rel="stylesheet" href="css/materialize.min.css">
+  <link href="material-icons.css" rel="stylesheet">
+  <header>
+      <nav>
+        <div class="nav-wrapper black ">
+          <a href="#" class="brand-logo left "><img src="images/bridge.png"></img>BridgeGreen</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="principal.html"><i class="material-icons left green-text accent-3">home</i>Home</a></li>
+            <li><a href="login.html"><i class="material-icons right green-text accent-3">keyboard_tab</i>Log Out</a></li>
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
+            <li><a href=""><i class="material-icons">home</i>inicio</a></li>
+            <li><a href=""><i class="material-icons">close</i>Log Out</a></li>
+          </ul>
+          </div>
+      </nav>
+  </header> 
+</head>
+<body>
+
+  <div class="row">
+    <div class="col l6">
+      <h3 class="center">Welcome to your BridgeGreen Channel</h3>
+    </div>
+      <div class="col l4">
+        <br>
+        <br>
+        <br>
+
+        <a class="center"href="upload.html"><button type="button" class="  btn waves-effect waves-green black right" ><i class="material-icons right">upload</i>Subir un video</button></a>
+
+      </div>
+      <div class="col l2">
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col l4">
+      <div class="input-field">
+        <input type="text" id="nombreVid">
+        <label for="nombreVid">Selecciona el video</label>
+
+      </div>
+    </div>
+    <div class="col l8">
+      <button class="waves-effect waves-green black btn" onclick="descarga()">Descargar  <i class="material-icons">file_download</i></button>
+      <button class="btn waves-effect waves-green black" type="button" onclick="stream()">Reproducir <i class="material-icons">play_arrow</i></button>
+	<video id="archivo" alt=""/>
+    </div>
+  </div>
+  <div class="row">
+  	<div class="col l2"></div>
+    <div class="col l8">
+    <div class="video-container center" id="videocont"style="visibility:hidden">
+      <video id="video" controls width="500px" height="500px" style="visibility:hidden" controls autoplay></video><br>
+        <button class="btn waves-effect waves-green black " type="button" style="visibility:hidden" id="like" onclick="like()">Like</button>
+        <button type="button" class="btn waves-effect waves-green black" style="visibility:hidden" id="dislike" onclick="dislike()">dislike</button>
+        <br>
+    </div>
+
+    <div class="input-field" id="Comentarios" style="visibility:hidden">
+      <input type="text" id="comment_text" >
+      <label for="comment_text">Realice un comentario</label>
+       <button class="btn waves-effect waves-green black" type="button" onclick="comentar()">Comentar</button>
+     </div>
+  </div>
+
+  <div class="col l2"></div>
+  </div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/materialize.min.js" ></script>
+  <script src="XHR.js"></script>
+  <script>
+    //  $(document).ready(function(){
+    //   $(".button-collapse").sideNav();
+    // });
+
+
+    function $(id) {
+    	return document.getElementById(id);
+    }
+    function descarga() {
+    	var url = "./DescargaArchivo?name="+ $("nombreVid").value.trim();
+    	$("archivo").src = url;
+    	var downloadWindow = window.open(url);
+    }
+    function stream(){
+    	var xhr= new XHR();
+    	media_name=$("nombreVid").value.trim();
+    	$("video").src="./video?videoname="+media_name;
+    	$("like").style="visibility:visible";
+    	$("video").style="visibility:visible";
+    	$("videocont").style="visibility:visible";
+    	$("dislike").style="visibility:visible";
+      	$("Comentarios").style="visibility:visible";
+    }
+    function like(){
+    	var xhr= new XHR();
+    	xhr.like($("nombreVid").value.trim());
+
+    }
+    function dislike(){
+    	var xhr= new XHR();
+    	xhr.dislike($("nombreVid").value.trim());
+    }
+    function comentar(){
+    	var xhr=new XHR();
+    	xhr.comment($("nombreVid").value.trim(),$("comment_text").value.trim());
+
+    }
+  </script>
+</body>
+</html>
