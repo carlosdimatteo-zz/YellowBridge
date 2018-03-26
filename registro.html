@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body class="grey lighten-2">
+    <header>
+        <nav>
+          <div class="nav-wrapper black ">
+            <a href="#" class="brand-logo left "><img src="images/bridge.png"></img>BridgeGreen</a>
+            <a href="#" data-activate="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="principal.html"><i class="material-icons left green-text accent-3">home</i>Inicio</a></li>
+              
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+              <li><a href=""><i class="material-icons">home</i>inicio</a></li>
+              <li><a href=""><i class="material-icons">account circle</i>acerca</a></li>
+              <li><a href=""><i class="material-icons">add</i>contacto</a></li>
+            </ul>
+            </div>
+        </nav>
+    </header>
+    <script src="XHR.js"></script>
+    <div class="container ">
+   <br>
+      <div class="row ">
+        <div class="col l3"></div>
+        <div style="border-radius:35px"class="card col l6 m12 s12 center-align black z-depth-5">
+          <form action="">
+              <h4 class="white-text"><img src="images/bridge.png"></img>SIGN UP </h4>
+            <div class="input-field">
+              <input size="30" class="white-text "type="text" id="name" name="name" >
+              <label for="name" >Name</label>
+            </div>
+            <div class="input-field">
+              <input size="30" class="white-text "type="text" id="lastname" name="lastname" >
+              <label for="lastname" >Lastname</label>
+            </div>
+            <div class="input-field">
+              <input size="30" class="white-text "type="email" id="email" name="email" >
+              <label for="email">Email</label>
+            </div>
+            <div class="input-field">
+              <input size="30" class="white-text "type="text" id="username" name="username" >
+              <label for="username" >Username</label>
+            </div>
+            <div class="input-field ">
+              <input size="30" class="white-text "type="password" id="password">
+              <label for="password" >Password</label>
+            </div>
+
+            <button type="button"  onclick="registro()"class="center waves-effect black waves-green btn"><i class="material-icons right">add</i>Sign Up!</button>
+              <p  class="white-text center">Already have an account? <a href="/Entrega1/login.html" class="white-text"><i class="material-icons "> face </i>Log in</a></p>
+            <br><br>
+          </form>
+        </div>
+        <div class="col l3"></div>
+      </div>
+    </div>
+<script>
+function registro(){
+   var n=document.getElementById("name").value;
+   var ln=document.getElementById("lastname").value;
+     var u=document.getElementById("username").value;
+     var c=document.getElementById("password").value;
+     var e=document.getElementById("email").value;
+
+     var j={
+     username:u,
+     password:c,
+     name:n,
+     email:e,
+     lastname:ln
+ }
+       console.log(j.username+j.password);
+   xhr= new XHR();
+       xhr.login("/Entrega1/RegisterServlet",j);
+
+}
+</script>
+
+
+
+   <script src="js/jquery.js"></script>
+    <script src="js/materialize.min.js" ></script>
+  </body>
+</html>

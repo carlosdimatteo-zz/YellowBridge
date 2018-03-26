@@ -1,0 +1,68 @@
+@charset "ISO-8859-1";
+#loginBox{
+    border-radius:35px;
+    border-style:double;
+    width:200px;
+    height: 200px;
+    padding: 58px 76px 76px 76px;
+    font: 12px Arial, Helvetica, sans-serif;
+    background-color:white;
+    
+}
+#loginBox h2{
+    padding:0;
+    margin:0;
+    color: black;
+    font: bold 44px "Calibri", Arial;
+}
+#loginBox-usuario{
+    float: left;
+    display:inline;
+    width:10px;
+    text-align: right;
+    padding: 14px 10px 0 0;
+    margin:-4px 0 7px 0;
+}
+#loginBox-clave{
+    float: left;
+    display:inline;
+    width:230px;
+    margin:0;
+    margin:0 0 7px 0;
+}
+#loginBox button{
+        font-size:15px;
+        font-family:Verdana,Helvetica;
+        font-weight:bold;
+        color:white;
+        background:grey center;
+        border:10px;
+        width:70px;
+        height:25px;
+        margin-left:55px;
+        border-radius:20px;
+}
+
+
+#loginBox-input {
+    float: left;
+    display:inline;
+    width:230px;
+    margin:0;
+    margin:0 0 7px 0;
+}
+#loginBox-input2 {
+    float: left;
+    display:inline;
+    width:230px;
+    margin:0;
+    margin:0 0 7px 0;
+}
+#Welcome h2{
+    padding:0;
+    margin:0;
+    color: black;
+    font: bold 150px "Calibri", Arial;
+    text-align:center;
+}
+
