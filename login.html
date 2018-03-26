@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body class="grey lighten-2">
+    <header>
+        <nav>
+          <div class="nav-wrapper black ">
+            <a href="#" class="brand-logo left "><img src="images/bridge.png"></img>BridgeGreen</a>
+            <a href="#" data-activate="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="principal.html"><i class="material-icons left green-text accent-3">home</i>Inicio</a></li>
+              
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+              <li><a href=""><i class="material-icons">home</i>inicio</a></li>
+              <li><a href=""><i class="material-icons">account circle</i>acerca</a></li>
+              <li><a href=""><i class="material-icons">add</i>contacto</a></li>
+            </ul>
+            </div>
+        </nav>
+    </header>
+    <script src="XHR.js"></script>
+    <div class="container ">
+      <br><br><br><br>
+      <div class="row ">
+        <div class="col l3"></div>
+        <div style="border-radius:35px"class="card col l6 m12 s12 center-align black z-depth-5">
+          <form action="">
+              <h4 class="white-text"><img src="images/bridge.png"></img>LOGIN</h4>
+            <div class="input-field">
+              <input size="30" class="white-text "type="text" id="username"  >
+              <label for="username" >username</label>
+            </div>
+            <br><br>
+            <div class="input-field ">
+              <input size="30" class="white-text "type="password" id="password"  >
+              <label for="password" >password</label>
+            </div>
+
+            <button type="button" onclick="inicio()" class="center waves-effect black waves-green btn"><i class="material-icons right">send</i>Submit</button>
+            <button  class="right waves-effect black waves-green btn large"><a class="white-text"href="/Entrega1/registro.html"><i class="material-icons right">add</i>Sign Up</a></button>
+            <br><br>
+          </form>
+        </div>
+        <div class="col l3"></div>
+      </div>
+    </div>
+<script>
+//console.log(window.location);
+function inicio(){
+       var u=document.getElementById("username").value;
+       var c=document.getElementById("password").value;
+       var j={
+       username:u,
+       password:c,
+       type_user:2
+   }
+       console.log(j.username+j.password);
+  var xhr= new XHR();
+       xhr.login("/Entrega1/LoginServlet",j);
+}
+</script>
+
+
+
+   <script src="js/jquery.js"></script>
+    <script src="js/materialize.min.js" ></script>
+  </body>
+</html>
