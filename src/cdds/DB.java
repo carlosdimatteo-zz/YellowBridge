@@ -26,10 +26,7 @@ public class DB {
 			PreparedStatement s;
 			s = con.prepareStatement(prop.getProp(query));
 			set(s,objects);
-			ResultSet rs=s.executeQuery();
-			rs.next();
-			get(rs,requests);
-			s.close();	
+			get(s,requests);
 			}
 
 
@@ -46,10 +43,7 @@ public class DB {
 				System.out.println(q);
 				s=con.prepareStatement(q);
 				set(s,objects);
-				ResultSet rs=s.executeQuery();
-				rs.next();
-				get(rs,requests);
-				s.close();
+				get(s,requests);
 				}else {
 					set(s,objects);
 
@@ -75,25 +69,21 @@ public class DB {
 			System.out.println("error en la base de datos :  "+e.getMessage());
 		}
 	}
+	 private void get(PreparedStatement s,String requests[]) throws SQLException{
+		 ResultSet rs=s.executeQuery();
+			rs.next();
+		 for(int i=0;i<requests.length;i++) {
+				String x= requests[i];
+				requests[i]=String.valueOf((rs.getObject(x)));
+			}s.close();	
+			}
+	 
 		public static DB getInstance(){
 			if(ins==null) {
 				ins=new DB();
 				
 			}
 			return ins;
-		}
-		
-		private void get(ResultSet rs,String[] requests) {
-			for(int i=0;i<requests.length;i++) {
-				String x= requests[i];
-				try {
-					requests[i]=String.valueOf(rs.getObject(x));
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				}
 		}
 		
 }
