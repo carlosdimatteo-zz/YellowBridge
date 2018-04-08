@@ -38,8 +38,8 @@ public class DescargaArchivo extends HttpServlet {
 		// TODO Auto-generated method stub
 		
         response.setHeader("Content-disposition","attachment; filename=descarga.mp4");
-		String r= getDB(request.getParameter("name"));
-        File my_file = new File(r);
+		String filename= getDB(request.getParameter("name"));
+        File my_file = new File(filename);
         OutputStream out = response.getOutputStream();
         FileInputStream in = new FileInputStream(my_file);
         byte[] buffer = new byte[4096];

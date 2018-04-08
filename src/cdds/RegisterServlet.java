@@ -53,10 +53,8 @@ public class RegisterServlet extends HttpServlet {
 		JSONObject j=new JSONObject();
 		boolean f=setDB(req);
 		if(f) {
-			j.put("sesion",true).put("username","usuario "+req.getString("username")+" creado con exito").put("url", "/Entrega1/login.html");
+			j.put("sesion",true).put("username",req.getString("username")).put("msg", "El usuario "+req.getString("username")+" ha sido creado con exito").put("url", "/Entrega1/login.html");
 			out.print(j.toString());
-			
-			//sesion.setAttribute("usuario",req.getString("usuario") );
 			
 		}else {
 			j.put("name","NO SE PUDO CREAR EL USUARIO");

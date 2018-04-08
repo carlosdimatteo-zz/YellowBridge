@@ -13,6 +13,7 @@ public class Props {
     protected Props() throws IOException{
     	
     	 properties = new Properties();
+    	 System.out.println(System.getProperty("props.dir"));
     	    FileInputStream is = new FileInputStream(System.getProperty("props.dir"));
     		properties.load(is);
     }

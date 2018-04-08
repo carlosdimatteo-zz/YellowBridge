@@ -24,6 +24,7 @@ import org.json.JSONObject;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	int id,type;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -55,9 +56,11 @@ public class LoginServlet extends HttpServlet {
 		System.out.println(System.getProperty("props.dir"));
 		boolean f=getDB(req);
 			if(f==true ) {
-			j.put("sesion",true).put("username",req.getString("username")).put("url","/Entrega1/channel.html").put("type_user",req.getInt("type_user"));
+			j.put("sesion",true).put("msg", "el usuario "+req.getString("username")+" ha iniciado sesion con exito").put("user_id",id).put("username",req.getString("username")).put("url","/Entrega1/channel.html").put("type_user",req.getInt("type_user"));
 			out.print(j.toString());
 			sesion.setAttribute("username",req.getString("username"));
+			sesion.setAttribute("user_id", id);//Changed Servlet functionality to work with user id instead of username Added user id column t media table in database for user-video relationship changed xhr.login function for a bug in message when registering
+			sesion.setAttribute("type_user", type);
 			}else {
 				j.put("sesion", false).put("username","invalido");
 				out.print(j.toString());
@@ -68,13 +71,17 @@ private boolean getDB(JSONObject req) {
 		boolean b;
 		DB db= DB.getInstance();
 		String datos[];
-		datos=new String[2];
+		datos=new String[4];
 		datos[0]="username";
 		datos[1]="password";
+		datos[2]="id_user";
+		datos[3]="type_id";
 		try {
 		db.ExecuteQuery("select.usuario",datos, req.getString("username"));
 		String u= datos[0];
 		String  c= datos[1];
+		id=Integer.parseInt(datos[2]);
+		type=Integer.parseInt(datos[3]);
 		if(u.equals(req.getString("username")) & c.equals(DigestUtils.md5Hex(req.getString("password")))) {
 			b=true;
 		}else {

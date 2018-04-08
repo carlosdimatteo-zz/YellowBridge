@@ -38,9 +38,9 @@ public class LikeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession sesion = request.getSession();
-		String v = (String) sesion.getAttribute("username");
+		Integer id = (Integer) sesion.getAttribute("user_id");
 		String p= request.getParameter("videoname");
-		setDB(v,p);
+		setDB(id,p);
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -51,14 +51,12 @@ public class LikeServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-	private void  setDB(String username,String media_name) {
+	private void  setDB(Integer id,String media_name) {
 		try {
 			DB db= DB.getInstance();
 			String datos[];
 			datos=new String[1];
-			datos[0]="id_user";
-			db.ExecuteQuery("select.usuario", datos, username);
-			Integer id_user=Integer.parseInt(datos[0]);
+			Integer id_user=id;
 			datos[0]="media_id";
 			db.ExecuteQuery("select.media", datos,media_name);
 			Integer id_media=Integer.parseInt(datos[0]);

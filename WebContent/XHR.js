@@ -8,7 +8,7 @@ class XHR{
     	var r=JSON.parse(x.response);
         console.log(x.responseText);
         console.log(toString(r.status));
-        alert("el usuario "+r.username+" ha iniciado sesion con exito");
+        alert(r.msg);
         if(r.url!=null){
         window.top.location.href=r.url;
         }
