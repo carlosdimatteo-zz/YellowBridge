@@ -57,7 +57,6 @@ public class video extends HttpServlet {
 		    out.write(bytes, 0, bytesRead);
 		}
 
-		// do the following in a finally block:
 		in.close();
 		out.close();		
 		}
