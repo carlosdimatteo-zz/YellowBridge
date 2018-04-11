@@ -2,17 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>BridgeGreen</title>
+  <title>YellowBridge</title>
   <link rel="stylesheet" href="css/materialize.min.css">
   <link href="material-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="XHR.js"></script>
+  <link rel="icon" href="images/icons8.png" type="image/x-icon">
+  <link rel="shortcut icon" href="images/icons8.png" type="image/x-icon"/>
   <header>
       <nav>
-        <div class="nav-wrapper black ">
-          <a href="#" class="brand-logo left "><img src="images/bridge.png"></img>BridgeGreen</a>
+        <div class="nav-wrapper grey lighten-4">
+          <a href="#" class="brand-logo left  grey-text lighten-4"><img src="images/icons8.png"></img>   YellowBridge</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="principal.html"><i class="material-icons left green-text accent-3">home</i>Home</a></li>
-            <li><a href="login.html"><i class="material-icons right green-text accent-3">keyboard_tab</i>Log Out</a></li>
+            <li><a href="upload.html"class="btn-flat tooltipped" data-position="bottom" data-delay="50" data-tooltip="Upload"><i class="material-icons right amber-text accent-3">file_upload</i></a></li>
+            <li><a href="principal.html" class="btn-flat tooltipped" data-position="bottom" data-delay="50" data-tooltip="Home"><i class="material-icons right amber-text accent-3">home</i></a></li>
+            <li><a href="login.html" class="btn-flat tooltipped" data-position="bottom" data-delay="50" data-tooltip="LogOut"><i class="material-icons left amber-text accent-3">keyboard_tab</i></a></li>
           </ul>
           <ul class="side-nav" id="mobile-demo">
             <li><a href=""><i class="material-icons">home</i>inicio</a></li>
@@ -23,67 +31,98 @@
   </header> 
 </head>
 <body>
-
+  <!-- <br>
   <div class="row">
+    <div class="col l3"></div>
     <div class="col l6">
-      <h3 class="center">Welcome to your BridgeGreen Channel</h3>
-    </div>
-      <div class="col l4">
-        <br>
-        <br>
-        <br>
-
-        <a class="center"href="upload.html"><button type="button" class="  btn waves-effect waves-green black right" ><i class="material-icons right">upload</i>Subir un video</button></a>
-
-      </div>
-      <div class="col l2">
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
     </div>
   </div>
-  <br>
-  <br>
-  <div class="row">
-    <div class="col l4">
-      <div class="input-field">
-        <input type="text" id="nombreVid">
-        <label for="nombreVid">Selecciona el video</label>
-
-      </div>
-    </div>
-    <div class="col l8">
-      <button class="waves-effect waves-green black btn" onclick="descarga()">Descargar  <i class="material-icons">file_download</i></button>
-      <button class="btn waves-effect waves-green black" type="button" onclick="stream()">Reproducir <i class="material-icons">play_arrow</i></button>
-	<video id="archivo" alt=""/>
-    </div>
-  </div>
-  <div class="row">
-  	<div class="col l2"></div>
-    <div class="col l8">
-    <div class="video-container center" id="videocont"style="visibility:hidden">
-      <video id="video" controls width="500px" height="500px" style="visibility:hidden" controls autoplay></video><br>
-        <button class="btn waves-effect waves-green black " type="button" style="visibility:hidden" id="like" onclick="like()">Like</button>
-        <button type="button" class="btn waves-effect waves-green black" style="visibility:hidden" id="dislike" onclick="dislike()">dislike</button>
-        <br>
-    </div>
-
-    <div class="input-field" id="Comentarios" style="visibility:hidden">
-      <input type="text" id="comment_text" >
-      <label for="comment_text">Realice un comentario</label>
-       <button class="btn waves-effect waves-green black" type="button" onclick="comentar()">Comentar</button>
-     </div>
-  </div>
-
   <div class="col l2"></div>
-  </div>
+  <hr> -->
+  <div class="container">
+      <div class="row">
+          <div class="col s6 m3">
+            <div class="card">
+              <div class="card-image">
+                <img class="roundImg" src="images/valeria.jpg">
+                <span class="card-title">VALERIA FERNANDEZ</span>
+              </div>
+              <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                I am convenient because I require little markup to use effectively.</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+          </div>
+          <div class="col s4 offset-s1">
+              <div class="col s4 m12">
+                <div class="card amber accent-3">
+                  <div class="card-content white-text">
+                    <span class="card-title">VIDEO 1</span>
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                      I am convenient because I require little markup to use effectively.</p>
+                  </div>
+                  <div class="card-action">
+                    <a href="#">This is a link</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col s4 m12">
+                <div class="card red accent-3">
+                  <div class="card-content white-text">
+                    <span class="card-title">VIDEO 3</span>
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively.</p>
+                  </div>
+                  <div class="card-action">
+                    <a href="#">This is a link</a>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="col s4 m4">
+            <div class="col s4 m12">
+              <div class="card cyan accent-3">
+                <div class="card-content white-text">
+                  <span class="card-title">VIDEO 2</span>
+                  <p>I am a very simple card. I am good at containing small bits of information.
+                      I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                  <a href="#">This is a link</a>
+                </div>
+              </div>
+            </div>
+            <div class="col s4 m12">
+              <div class="card red">
+                <div class="card-content white-text">
+                  <span class="card-title">VIDEO 4</span>
+                  <p>I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                  <a href="#">This is a link</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-  <script src="js/jquery.js"></script>
-  <script src="js/materialize.min.js" ></script>
-  <script src="XHR.js"></script>
+  </div>
   <script>
     //  $(document).ready(function(){
     //   $(".button-collapse").sideNav();
     // });
-
-
+   
     function $(id) {
     	return document.getElementById(id);
     }
@@ -100,7 +139,7 @@
     	$("video").style="visibility:visible";
     	$("videocont").style="visibility:visible";
     	$("dislike").style="visibility:visible";
-      	$("Comentarios").style="visibility:visible";
+      $("Comentarios").style="visibility:visible";
     }
     function like(){
     	var xhr= new XHR();
@@ -116,6 +155,7 @@
     	xhr.comment($("nombreVid").value.trim(),$("comment_text").value.trim());
 
     }
+    
   </script>
 </body>
 </html>

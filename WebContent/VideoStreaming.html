@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link href="material-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href="images/icons8.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/icons8.png" type="image/x-icon"/>
+    <title>YellowBridge</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/materialize.min.js" ></script>
+    <script src="XHR.js"></script>
+    <header>
+            <nav>
+              <div class="nav-wrapper grey lighten-4">
+                <a href="#" class="brand-logo left  grey-text lighten-4"><img src="images/icons8.png"></img>   YellowBridge</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                  <li><a href="principal.html" class="btn-flat tooltipped" data-position="bottom" data-delay="50" data-tooltip="Home"><i class="material-icons right amber-text accent-3">home</i></a></li>
+                  <li><a href="registro.html" class="btn-flat tooltipped" data-position="bottom" data-delay="50" data-tooltip="Sign Up"><i class="material-icons left amber-text accent-3">face</i></a></li>
+                  <li><a href="login.html" class="btn-flat tooltipped" data-position="bottom" data-delay="50" data-tooltip="Login"><i class="material-icons left amber-text accent-3">add</i></a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                  <li><a href=""><i class="material-icons">home</i>inicio</a></li>
+                  <li><a href=""><i class="material-icons">face</i>Register</a></li>
+                </ul>
+                </div>
+            </nav>
+        </header> 
+</head>
+<body>
+    <div class="row">
+        <div class="col l2"></div>
+        <div class="col l8">
+            <div class="video-container" id="videocont">
+                <video id="video" controls width="500px" height="500px" controls autoplay></video><br>
+                <br>
+            </div>
+            <button  class="center waves-effect grey lighten-2 waves-yellow btn black-text" style="border-radius:15px" type="button"  id="like" onclick="like()">Like</button>
+            <button type="button"  class="center waves-effect grey lighten-2 waves-yellow btn black-text" style="border-radius:15px"  id="dislike" onclick="dislike()">dislike</button>
+            <div class="input-field" id="Comentarios">
+                <input type="text" id="comment_text" >
+                <label for="comment_text">Realice un comentario</label>
+                 <button  class="center waves-effect grey lighten-2 waves-yellow btn black-text" style="border-radius:15px" type="button" onclick="comentar()">Comentar</button>
+            </div>
+        </div>
+        <div class="col l2"></div>
+    </div>
+    <script>
+        function $(id) {
+    	return document.getElementById(id);
+        }
+        function descarga() {
+    	    var url = "./DescargaArchivo?name="+ $("nombreVid").value.trim();
+    	    $("archivo").src = url;
+    	    var downloadWindow = window.open(url);
+        }
+        // function stream(){
+    	    var xhr= new XHR();
+    	    media_name=$("nombreVid").value.trim();
+    	    $("video").src="./video?videoname="+media_name;
+        // }
+        function like(){
+    	    var xhr= new XHR();
+    	    xhr.like($("nombreVid").value.trim());
+        }
+        function dislike(){
+    	    var xhr= new XHR();
+    	    xhr.dislike($("nombreVid").value.trim());
+        }
+        function comentar(){
+    	    var xhr=new XHR();
+    	    xhr.comment($("nombreVid").value.trim(),$("comment_text").value.trim());
+        }
+    </script>
+</body>
+</html>

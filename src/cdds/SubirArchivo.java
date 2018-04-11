@@ -1,6 +1,5 @@
 package cdds;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -13,11 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
-import java.util.Properties;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Connection;
 /**
  * Servlet implementation class SubirArchivo
  */
@@ -25,6 +20,7 @@ import java.sql.Connection;
 @WebServlet("/SubirArchivo")
 public class SubirArchivo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	int id;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -50,6 +46,7 @@ public class SubirArchivo extends HttpServlet {
 		Part file = request.getPart("file");
 		HttpSession sesion= request.getSession();
 		String v=(String)sesion.getAttribute("username");
+		id = (Integer) sesion.getAttribute("user_id");
 		
 		File folder = new File("c:/BridgeGreen"+"\\" +v);
 		if (!folder.exists()) {
@@ -97,7 +94,7 @@ public class SubirArchivo extends HttpServlet {
 			DB db= DB.getInstance();
 			long date=new java.util.Date().getTime();
 			try {
-			db.ExecuteUpdate("insert.media", null,url,req.getParameter("titulovid"),getFileName(req.getPart("file")),req.getParameter("deArchivo"),date);
+			db.ExecuteUpdate("insert.media", null,id,url,req.getParameter("titulovid"),getFileName(req.getPart("file")),req.getParameter("deArchivo"),date);
 	}catch (SQLException | IOException | ServletException e) {
 		System.out.println("no se pudo guardar en la base de datos");
 	}

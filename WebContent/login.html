@@ -5,45 +5,48 @@
     <title>Login Form</title>
     <link rel="stylesheet" href="css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  </head>
-  <body class="grey lighten-2">
-    <header>
-        <nav>
-          <div class="nav-wrapper black ">
-            <a href="#" class="brand-logo left "><img src="images/bridge.png"></img>BridgeGreen</a>
-            <a href="#" data-activate="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-              <li><a href="principal.html"><i class="material-icons left green-text accent-3">home</i>Inicio</a></li>
-              
-            </ul>
-            <ul class="side-nav" id="mobile-demo">
-              <li><a href=""><i class="material-icons">home</i>inicio</a></li>
-              <li><a href=""><i class="material-icons">account circle</i>acerca</a></li>
-              <li><a href=""><i class="material-icons">add</i>contacto</a></li>
-            </ul>
-            </div>
-        </nav>
-    </header>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/icons8.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/icons8.png" type="image/x-icon"/>
     <script src="XHR.js"></script>
+  </head>
+  <body>
+        <header>
+            <nav>
+              <div class="nav-wrapper grey lighten-4">
+                <a href="#" class="brand-logo left  grey-text lighten-4"><img src="images/icons8.png"></img>   YellowBridge</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                  <li><a href="principal.html" class="btn-flat tooltipped" data-position="bottom" data-delay="50" data-tooltip="Home"><i class="material-icons right amber-text accent-3">home</i></a></li>
+                  <li><a href="registro.html" class="btn-flat tooltipped" data-position="bottom" data-delay="50" data-tooltip="Sign Up"><i class="material-icons left amber-text accent-3">face</i></a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                  <li><a href=""><i class="material-icons">home</i>inicio</a></li>
+                  <li><a href=""><i class="material-icons">face</i>Register</a></li>
+                </ul>
+                </div>
+            </nav>
+        </header> 
+    
     <div class="container ">
       <br><br><br><br>
       <div class="row ">
         <div class="col l3"></div>
-        <div style="border-radius:35px"class="card col l6 m12 s12 center-align black z-depth-5">
+        <div style="border-radius:35px"class="card col l6 m12 s12 center-align grey lighten-4 z-depth-5">
           <form action="">
-              <h4 class="white-text"><img src="images/bridge.png"></img>LOGIN</h4>
+              <h4 class="grey-text darken-3" style="font-family: Impact, Charcoal, sans-serif"><img src="images/icons8.png"></img>Login</h4>
             <div class="input-field">
-              <input size="30" class="white-text "type="text" id="username"  >
-              <label for="username" >username</label>
+              <input size="30" class="black-text "type="text" id="username"  >
+              <label for="username" >Username</label>
             </div>
             <br><br>
             <div class="input-field ">
-              <input size="30" class="white-text "type="password" id="password"  >
-              <label for="password" >password</label>
+              <input size="30" class="black-text "type="password" id="password"  >
+              <label for="password" >Password</label>
             </div>
 
-            <button type="button" onclick="inicio()" class="center waves-effect black waves-green btn"><i class="material-icons right">send</i>Submit</button>
-            <button  class="right waves-effect black waves-green btn large"><a class="white-text"href="/Entrega1/registro.html"><i class="material-icons right">add</i>Sign Up</a></button>
+            <button type="button" onclick="inicio()" class="center waves-effect grey lighten-2 waves-yellow btn black-text" style="border-radius:15px"><i class="material-icons right amber-text">send</i>Submit</button>
+            <button  class="center waves-effect grey lighten-2 waves-yellow btn black-text" style="border-radius:15px"><a class="black-text"href="registro.html"><i class="material-icons right amber-text">add</i>Sign Up</a></button>
             <br><br>
           </form>
         </div>

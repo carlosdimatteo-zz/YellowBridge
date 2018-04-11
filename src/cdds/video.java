@@ -3,13 +3,7 @@ package cdds;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Properties;
-
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
@@ -57,7 +51,6 @@ public class video extends HttpServlet {
 		    out.write(bytes, 0, bytesRead);
 		}
 
-		// do the following in a finally block:
 		in.close();
 		out.close();		
 		}

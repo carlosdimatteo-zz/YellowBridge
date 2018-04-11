@@ -5,56 +5,59 @@
     <title>Sign Up Form</title>
     <link rel="stylesheet" href="css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  </head>
-  <body class="grey lighten-2">
-    <header>
-        <nav>
-          <div class="nav-wrapper black ">
-            <a href="#" class="brand-logo left "><img src="images/bridge.png"></img>BridgeGreen</a>
-            <a href="#" data-activate="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-              <li><a href="principal.html"><i class="material-icons left green-text accent-3">home</i>Inicio</a></li>
-              
-            </ul>
-            <ul class="side-nav" id="mobile-demo">
-              <li><a href=""><i class="material-icons">home</i>inicio</a></li>
-              <li><a href=""><i class="material-icons">account circle</i>acerca</a></li>
-              <li><a href=""><i class="material-icons">add</i>contacto</a></li>
-            </ul>
-            </div>
-        </nav>
-    </header>
     <script src="XHR.js"></script>
+    <link href="material-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <link rel="icon" href="images/icons8.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/icons8.png" type="image/x-icon"/>
+  </head>
+  <body>
+      <header>
+          <nav>
+            <div class="nav-wrapper grey lighten-4">
+              <a href="#" class="brand-logo left  grey-text lighten-4"><img src="images/icons8.png"></img>   YellowBridge</a>
+              <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+              <ul class="right hide-on-med-and-down">
+                <li><a href="principal.html" class="btn-flat tooltipped" data-position="bottom" data-delay="50" data-tooltip="Home"><i class="material-icons right amber-text accent-3">home</i></a></li>
+              </ul>
+              <ul class="side-nav" id="mobile-demo">
+                <li><a href=""><i class="material-icons">home</i>inicio</a></li>
+                <li><a href=""><i class="material-icons">close</i>Log Out</a></li>
+              </ul>
+              </div>
+          </nav>
+      </header>
     <div class="container ">
    <br>
       <div class="row ">
         <div class="col l3"></div>
-        <div style="border-radius:35px"class="card col l6 m12 s12 center-align black z-depth-5">
+        <div style="border-radius:35px"class="card col l6 m12 s12 center-align grey lighten-4 z-depth-5">
           <form action="">
-              <h4 class="white-text"><img src="images/bridge.png"></img>SIGN UP </h4>
+              <h4 class="grey-text darken-3" style="font-family: Impact, Charcoal, sans-serif"><img src="images/icons8.png"></img>Sign Up </h4>
             <div class="input-field">
-              <input size="30" class="white-text "type="text" id="name" name="name" >
+              <input size="30" class="black-text "type="text" id="name" name="name" >
               <label for="name" >Name</label>
             </div>
             <div class="input-field">
-              <input size="30" class="white-text "type="text" id="lastname" name="lastname" >
+              <input size="30" class="black-text "type="text" id="lastname" name="lastname" >
               <label for="lastname" >Lastname</label>
             </div>
             <div class="input-field">
-              <input size="30" class="white-text "type="email" id="email" name="email" >
+              <input size="30" class="black-text "type="email" id="email" name="email" >
               <label for="email">Email</label>
             </div>
             <div class="input-field">
-              <input size="30" class="white-text "type="text" id="username" name="username" >
+              <input size="30" class="black-text "type="text" id="username" name="username" >
               <label for="username" >Username</label>
             </div>
             <div class="input-field ">
-              <input size="30" class="white-text "type="password" id="password">
+              <input size="30" class="black-text "type="password" id="password">
               <label for="password" >Password</label>
             </div>
-
-            <button type="button"  onclick="registro()"class="center waves-effect black waves-green btn"><i class="material-icons right">add</i>Sign Up!</button>
-              <p  class="white-text center">Already have an account? <a href="/Entrega1/login.html" class="white-text"><i class="material-icons "> face </i>Log in</a></p>
+            <button type="button"  onclick="registro()"class="center waves-effect grey lighten-2 waves-yellow btn black-text" style="border-radius:15px"><i class="material-icons right amber-text">add</i>Sign Up!</button>
+              <p  class="black-text center">Already have an account? <a href="login.html" class="black-text"><i class="material-icons "> face </i>Log in</a></p>
             <br><br>
           </form>
         </div>

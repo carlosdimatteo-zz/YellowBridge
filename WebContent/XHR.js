@@ -1,4 +1,5 @@
 var myFile = "";
+
 class XHR{
     //dat va a ser el json proveniente del form y url va a ser el servlet al cual se quiere enviar
  login(url,data){
@@ -8,7 +9,7 @@ class XHR{
     	var r=JSON.parse(x.response);
         console.log(x.responseText);
         console.log(toString(r.status));
-        alert("el usuario "+r.username+" ha iniciado sesion con exito");
+        alert(r.msg);
         if(r.url!=null){
         window.top.location.href=r.url;
         }
@@ -94,4 +95,6 @@ x.send();
 	 x.open("post","/Entrega1/CommentsServlet?videoname="+videoname,true);
 	 x.send(formData);
  }
+ 
+ 
 }

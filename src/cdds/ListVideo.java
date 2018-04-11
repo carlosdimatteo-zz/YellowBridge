@@ -1,7 +1,7 @@
 package cdds;
 
 import java.io.IOException;
-import java.sql.SQLException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,18 +9,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
- * Servlet implementation class LikeServlet
+ * Servlet implementation class ListVideo
  */
-@WebServlet("/DislikeServlet")
-public class DislikeServlet extends HttpServlet {
+@WebServlet("/ListVideo")
+public class ListVideo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DislikeServlet() {
+    public ListVideo() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,11 +32,25 @@ public class DislikeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		PrintWriter out= response.getWriter();
 		HttpSession sesion = request.getSession();
 		Integer id = (Integer) sesion.getAttribute("user_id");
-		String p= request.getParameter("videoname");
-		setDB(id,p);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		JSONArray ja=new JSONArray();
+		JSONObject j=new JSONObject();
+		System.out.println(System.getProperty("props.dir"));
+		DB db= DB.getInstance();
+		db.ExecuteList("select.video","user_id");
+		JSONArray
+		
+		
+		
+//		arreglo de los elementos que quiero
+//		2eq
+//		ir recorriendo el result set e ir guardandolo en un json array
+//		pida cuantos videos hay, usar ese numero para llenar el arreglo
+		
+		
 	}
 
 	/**
@@ -43,21 +59,6 @@ public class DislikeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-	}
-	private void  setDB(Integer id,String media_name) {
-			DB db= DB.getInstance();
-			String datos[];
-			datos=new String[1];
-			Integer id_user=id;
-			datos[0]="media_id";
-			try {
-			db.ExecuteQuery("select.media", datos,media_name);
-			Integer id_media=Integer.parseInt(datos[0]);
-			db.ExecuteUpdate("delete.like",null,id_user,id_media);
-	}catch (SQLException e) {
-		System.out.println("no se pudo borrar de la base de datos");
-	}
-	
 	}
 
 }
