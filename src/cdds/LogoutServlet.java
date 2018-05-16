@@ -31,7 +31,7 @@ public class LogoutServlet extends HttpServlet {
 		HttpSession sesion=request.getSession();
 		sesion.invalidate();
 		JSONObject j=new JSONObject();
-		j.put("url","/Entrega1/principal.html");
+		j.put("url","/Entrega1/index.html");
 		response.getWriter().print(j.toString());
 	}
 
